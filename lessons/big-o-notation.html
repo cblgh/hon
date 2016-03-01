@@ -13,11 +13,11 @@
       <h5 class="chapter">Chapter 2</h5>
       <h3>Big O Notation</h3>
  
-      <p><i>Big O Notation</i>, for our purposes, refers to a notation in how we measure and classify our applicationss and programs in regards to the time and space they use. We are going to focus solely on time, or rather the speed, in which they run. Big O notation actually refers to a larger field of algorithms study with a variety of symbols and terminology akin to combinatorics and in mathematics can be called <i>asymptotic notation</i>.</p>
+      <p><i>Big O Notation</i>, for our purposes, refers to a notation in how we measure and classify our applications and programs in regards to the time and space they use. We are going to focus solely on time, or rather the <i>speed</i>, in which they run. Big O notation actually refers to a larger field of algorithms study with a variety of symbols and terminology akin to combinatorics and is known under the name of <i>asymptotic notation</i> in mathematics.</p>
 
-      <p>Big O specifically refers to an "upper bound", the "worst case scenario" or the slowest our program will run. We cannot give a specific amount of time (e.g. miliseconds). Your computer is different than my computer, which is different than a server set up somewhere such as Amazon but we can say how fast or slow it'll run in comparison to our data.</p>
+      <p>Big O specifically refers to an "upper bound", e.g. the "worst case scenario" or the slowest our program will run. We cannot give a specific amount of time (e.g. miliseconds). Your computer is different than my computer, which is different than a server set up somewhere such as Amazon but we can say how fast or slow it'll run in comparison to our data.</p>
 
-      <p class="note">There are other notations such as 'theta' (&#937), 'omega' (&#920) and the 'small' versions of each. Those are interesting as well, and if you want to dive deeper into the topic, I highly suggest Google'ing them and checking them out.</p>
+      <p class="note">There are other notations such as 'theta' (&#937), 'omega' (&#920) and the 'small' versions of each. Those are interesting as well, and if you want to dive deeper into the topic, I highly suggest googling them and checking them out.</p>
 
       <!-- DRAWING -->
       <h1>[DRAWING GOES HERE]</h1>
@@ -48,7 +48,7 @@
 14  one = my_array[0]
 15  one = my_hash[:first]</code></pre>
 
-      <p>All of the above runs in <b><i>O(1)</i></b> time. You can read this as "our compiler or interpreter doesn't need to 'think' or 'find' about what something is" but simply executes. This is why Hashes are preferred, where possible. Accessing keys of a Hash is an <i>O(1)</i> operation and is designed for speed of accessibility.</p>
+      <p>All of the above runs in <b><i>O(1)</i></b> time. You can read this as "our compiler or interpreter doesn't need to 'think' about or 'find' what something is" but simply executes. This is why Hashes are preferred, where possible. Accessing keys of a Hash is an <i>O(1)</i> operation and is designed for speed of accessibility.</p>
 
       <p>
         <ul>
@@ -74,7 +74,7 @@
 
       <p>In my opinion, the best way to think of the above is...</p>
 
-      <p><i>We have a an unsorted array. We're looking for a value that may or may not exist. Therefore, we will need to check <u>every</u> element. The best we can do is to check every item only once. Whilst iterating, if we find our value, return true. Otherwise, if we finish our iteration, return false. The "worst case scenario", as the value may be the last element, or even not exist, for this method is <b>O(n)</b> time. More so, the number of operations is equivalent to our collection's size.</i></p>
+      <p><i>We have an unsorted array. We're looking for a value that may or may not exist. Therefore, we will need to check <u>every</u> element. The best we can do is to check every item only once. Whilst iterating, if we find our value, return true. Otherwise, if we finish our iteration, return false. The "worst case scenario", as the value may be the last element, or even not exist, for this method is <b>O(n)</b> time. More so, the number of operations is equivalent to our collection's size.</i></p>
 
       <p>
         <ul>
