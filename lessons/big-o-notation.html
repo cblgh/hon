@@ -93,15 +93,15 @@
 8   end</code></pre>
 
 
-      <p>Remember, for this chapter, we are "glass half empty" people. We need to think worst case scenario. Even though we may find what we're looking for in the on the very first operation, most of the time we're not sure and could potentially need to go over the entire program.</p>
+      <p>Remember, for this chapter, we are "glass half empty" people. We need to think worst case scenario. Even though we may find what we're looking for with the very first operation, most of the time we're not sure and could potentially need to go over the entire program.</p>
 
-      <p>Also, to note, though 'a' be significantly larger than 'b', and instead of <i>O(n<sup>2</sup>)</i>, </p>
+       <!-- old sentence? <p>Also, to note, though 'a' be significantly larger than 'b', and instead of <i>O(n<sup>2</sup>)</i>, </p> -->
 
       <p>So... what can we then assume about a triple nested loop with <code>array_c</code>? You guessed it, <b><i>O(n<sup>3</sup>)</i></b>. I've always told my students to think of a abnormally large data set. Something they're not used to, such as <i>"all the users on Twitter to see if their name matches another".</i> For quadratic time, we would really have a lot of operations and if possible, quadratic time is something we would like to avoid.</p>
 
       <p>
         <ul>
-          <li>We can actually go faster than <b><i>O(n)</i></b> if our data set is sorted. This is when we get to logarithmnic time, denoted as <b><i>O(log n)</i></b></li>
+          <li>We can actually go faster than <b><i>O(n)</i></b> if our data set is sorted. This is when we get to logarithmic time, denoted as <b><i>O(log n)</i></b></li>
         </ul>
       </p>
 
@@ -147,7 +147,7 @@
 
       <p>So, looking at this we see the word 'divide' and knowing how Binary Search works... we can now think of our <i>O(log n)</i> time. But now we see we need to touch every element at the same time we're doing this, so we have our <i>O(n)</i> * <i>O(log n)</i> operations.</p>
 
-      <p>Multiple searches and sorts utilize this "divide and conquer" tactic in order to sort its data, particularly in regards to Arrays. <i>O(n log n)</i> falls between our quadratic and linear run times and unless we get into very complex algorithms or are willing to sacrifice a lot of space, such as in a Bucket Sort, <i>O(n log n)</i> is the usually the best we can do.</p>
+      <p>Multiple search and sort algorithms utilize this "divide and conquer" tactic in order to sort its data, particularly in regards to Arrays. <i>O(n log n)</i> falls between our quadratic and linear run times and unless we get into very complex algorithms or are willing to sacrifice a lot of space, such as in a Bucket Sort, <i>O(n log n)</i> is the usually the best we can do.</p>
 
       <p class="note">Ruby's default sorting method, for instance, when we call <code>my_array.sort</code>, is a <a href="https://en.wikipedia.org/wiki/Quicksort">Quicksort.</a></p>
 
@@ -187,7 +187,7 @@
 
       <h5>Conclusion</h5>
 
-      <p>We know now how to evaluate our programs based upon various code that we see. We know that nested loops are a bad idea and if possible, we prefer to use a Hash or seperate our loops. We drop constants when looking at the overall run time. In addition, our programs are stuck using the largest run time we encounter as though we may have a very fast program for 90% of it, that last 10% could be the "choke point".</p>
+      <p>We know now how to evaluate our programs based upon various code that we see. We know that nested loops are a bad idea and if possible, we prefer to use a Hash or separate our loops. We drop constants when looking at the overall run time. In addition, our programs are stuck using the largest run time we encounter as though we may have a very fast program for 90% of it, that last 10% could be the "choke point".</p>
 
       <p>
         <ul>
@@ -197,12 +197,12 @@
 
       <p>
         <ol>
-          <li><i>Determine the run time of the following Ruby Array methods. Assume your data set is an unosrted Array of unknown length</i></li>
+          <li><i>Determine the run time of the following Ruby Array methods. Assume your data set is an unsorted Array of unknown length.</i></li>
 <pre><code>.max                     # returns the largest element
 .collect { |x| x > 3 }   # returns an Array that meets the conditional
 .reverse                 # reverses the Array
 .insert(index, element)  # inserts element at an index, shifting everything else</code></pre>
-          <li><i>Here is the psuedocode for a type of Bucket sort, that's not worried about repeat values (<a href="https://en.wikipedia.org/wiki/Bucket_sort#Pseudocode">from Wikipedia</a>), program it and determine its run time</i></li>
+          <li><i>Here is the psuedocode for a type of Bucket sort that's not worried about repeat values (<a href="https://en.wikipedia.org/wiki/Bucket_sort#Pseudocode">Wikipedia</a>), program it and determine its run time.</i></li>
 <pre><code>Initial Array: [6,3,4,2]
 Create return Array:
   [ '', '', '', '', '', '', '' ]
