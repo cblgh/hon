@@ -1,0 +1,47 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+
+.title {
+  border-top: 1px solid #000;
+  font-family: 'Oswald', sans-serif;
+  padding-bottom: 2%;
+}
+
+.container {
+  font-family: 'Droid Serif', serif;
+  font-size: 1.75rem;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.note {
+  background-color: #bdc3c7;
+  font-family: serif;
+  font-size: 1.5rem;
+  font-style: italic;
+  padding: 3vh 3vw 3vh 3vw;
+}
+
+.chapter {
+  border-bottom: none;
+  color: #BFBFBF;
+}
+
+h5 {
+  border-bottom: 1px solid black;
+  font-family: serif;
+}
+
+h3 {
+  padding-bottom: 2%;
+}
+
+img {
+  height: 500px;
+  width: 400px;
+  margin: 5vh 0 5vh 0;
+}
+
+ul li {
+  color: #DB0A5B;
+}

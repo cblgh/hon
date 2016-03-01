@@ -1,0 +1,231 @@
+<html>
+<head>
+  <title>Big O Notation</title>
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="../css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="../css/book.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="container">
+
+      <h5 class="chapter">Chapter 2</h5>
+      <h3>Big O Notation</h3>
+ 
+      <p><i>Big O Notation</i>, for our purposes, refers to a notation in how we measure and classify our applicationss and programs in regards to the time and space they use. We are going to focus solely on time, or rather the speed, in which they run. Big O notation actually refers to a larger field of algorithms study with a variety of symbols and terminology akin to combinatorics and in mathematics can be called <i>asymptotic notation</i>.</p>
+
+      <p>Big O specifically refers to an "upper bound", the "worst case scenario" or the slowest our program will run. We cannot give a specific amount of time (e.g. miliseconds). Your computer is different than my computer, which is different than a server set up somewhere such as Amazon but we can say how fast or slow it'll run in comparison to our data.</p>
+
+      <p class="note">There are other notations such as 'theta' (&#937), 'omega' (&#920) and the 'small' versions of each. Those are interesting as well, and if you want to dive deeper into the topic, I highly suggest Google'ing them and checking them out.</p>
+
+      <!-- DRAWING -->
+      <h1>[DRAWING GOES HERE]</h1>
+      <!-- o -->
+      
+      <h5>Determining notations</h5>
+      <p>
+        <ul>
+          <li>We call assignments and conditionals <i><b>O(1)</b></i>, or rather... <b>constant</b> time.</li>
+        </ul>
+      </p>
+
+      <p>This means we do not need to do any searching, iterating or sorting. We are making an assignment or conditional or rather, we are saying "here is something" or "if this equals that". The <i>Big O</i>, the slowest our program will run, is <i>O(1)</i>. This is is the fastest operation we can do, executing immediately. Let's take a look at the below program:</p>
+
+<pre><code>1   # variable assignment
+2   five = 5
+3
+4   # conditionals
+5   if five == 5
+6     puts 'this is five!'
+7   end
+8 
+9   # instantiation of empty data structures
+10  my_array = []
+11  my_hash  = { first: 1 }
+12 
+13  # accessing an index out of an Array or Hash
+14  one = my_array[0]
+15  one = my_hash[:first]</code></pre>
+
+      <p>All of the above runs in <b><i>O(1)</i></b> time. You can read this as "our compiler or interpreter doesn't need to 'think' or 'find' about what something is" but simply executes. This is why Hashes are preferred, where possible. Accessing keys of a Hash is an <i>O(1)</i> operation and is designed for speed of accessibility.</p>
+
+      <p>
+        <ul>
+          <li>Iterating over an Array is considered <b><i>O(n)</i></b>, or linear time.</li>
+        </ul>
+      </p>
+
+      <p>The number of operations is equal to the size of our collection, denoted by <b><i>n</i></b>. For instance, if we have an Array that has 5 items in it... we say that <i>n</i> = 5. Most of the time, we do not know how large our data set will be and therefore <i>n</i> will be a placeholder in this regard. Let's take a look at a <code>linear_search</code> algorithm:</p>
+
+<pre><code>1   class Array
+2     def linear_search(value)
+3       self.each do |element|
+5         return true if element == value
+6       end
+7       return false
+8     end
+9   end
+10   
+11  # an unsorted array of unknown size
+12  some_array = [45, 6, 33, ..., <i>n</i>]
+13  some_array.linear_search(19)
+</code></pre>
+
+      <p>In my opinion, the best way to think of the above is...</p>
+
+      <p><i>We have a an unsorted array. We're looking for a value that may or may not exist. Therefore, we will need to check <u>every</u> element. The best we can do is to check every item only once. Whilst iterating, if we find our value, return true. Otherwise, if we finish our iteration, return false. The "worst case scenario", as the value may be the last element, or even not exist, for this method is <b>O(n)</b> time. More so, the number of operations is equivalent to our collection's size.</i></p>
+
+      <p>
+        <ul>
+          <li>An iteration of an iteration results in quadratic time</li>
+        </ul>
+      </p>
+
+      <p>The number of operations is "quadratically" related to to the size of the data. For each element in our iteration, that element requires an iteration. From the above, we know that a loop over out collection, of any kind, results in <i>O(n)</i> run time. Now, each element in the inital set, requires an iteration. Mathematically, for each <i>n</i>, we require another <i>n</i> operations for a total of <i>n<sup>2</sup></i>. Taking a look at some code:</p>
+
+<pre><code>1   array_a = [<i>???</i>] # an unsorted Array of unknown length
+3   array_b = [<i>???</i>] # another unsorted Array of unknown length
+4   array_a.each do |a|
+5     array_b.each do |b|
+6       return true if a == b
+7     end
+8   end</code></pre>
+
+
+      <p>Remember, for this chapter, we are "glass half empty" people. We need to think worst case scenario. Even though we may find what we're looking for in the on the very first operation, most of the time we're not sure and could potentially need to go over the entire program.</p>
+
+      <p>Also, to note, though 'a' be significantly larger than 'b', and instead of <i>O(n<sup>2</sup>)</i>, </p>
+
+      <p>So... what can we then assume about a triple nested loop with <code>array_c</code>? You guessed it, <b><i>O(n<sup>3</sup>)</i></b>. I've always told my students to think of a abnormally large data set. Something they're not used to, such as <i>"all the users on Twitter to see if their name matches another".</i> For quadratic time, we would really have a lot of operations and if possible, quadratic time is something we would like to avoid.</p>
+
+      <p>
+        <ul>
+          <li>We can actually go faster than <b><i>O(n)</i></b> if our data set is sorted. This is when we get to logarithmnic time, denoted as <b><i>O(log n)</i></b></li>
+        </ul>
+      </p>
+
+      <p class="note">The "log" referred to in Big O Notation is "base 2". This is similar to how memory on your computer in regards to bits and binary (the 0s and 1s). The quick run down on logarithms is... 2<sup>3</sup> = 8. Therefore, log(8) = 3. 2<sup>5</sup> = 32 and log(32) = 5 and so on... treat them as if they're backwards exponents.</p>
+
+      <p>Algorithms, such as "Binary Search", are able to run in <i>O(log n)</i> time by recursively dividing out the set of data.</p>
+
+<pre><code>1   my_array = [1, 2, 3, 4, 5, 6, 7, 8]
+2   class Array
+3     def binary_search(value)
+4        return false if self.empty?
+5        mid = self.length / 2
+6        return true if self[mid] == value
+7
+8        if self[mid] > value
+9         self.binary_search(self[0...mid], value)
+10       elsif self[mid] < value
+11        self.binary_search(self[mid+1..-1], value)
+12       end
+13     end
+14   end
+</code></pre>
+
+      <p>During the first pass of <code>my_array.binary_search(6)</code>, we notice that our set of data will be cut to <code>[6, 7, 8]</code>. From there we will cut again to <code>[6]</code> and we find our value from there.</p>
+
+      <p>That's 3 operations for a data set of 8, which matches our <i>O(log n)</i> clause. While executing immediately in <i>O(1)</i> time is the most desirabe, <i>O(log n)</i> is not bad. The one underlying factor is our data must be sorted, which we will discuss further.</p>
+
+      <p>
+        <ul>
+          <li><i><b>O(n log n)</b></i> is a common occuring run-time for "good" sorts and searches</li>
+        </ul>
+      </p>
+
+      <p>For instance, Mergesort is a very popular and pretty good sorting algorithm. Big O Notation is particularly important. The description of it, is as follows:</p>
+
+      <pre><code><i><a href="https://en.wikipedia.org/wiki/Merge_sort#Algorithm">from Wikipedia</a></i><br>
+1 - Divide the unsorted list into <i>n</i> sublists,
+  each containing 1 element
+2 - Repeatedly merge sublists to produce new sorted sublists
+  until there is only 1 sublist remaining.
+    This will be the sorted list.
+      </code></pre>
+
+      <p>So, looking at this we see the word 'divide' and knowing how Binary Search works... we can now think of our <i>O(log n)</i> time. But now we see we need to touch every element at the same time we're doing this, so we have our <i>O(n)</i> * <i>O(log n)</i> operations.</p>
+
+      <p>Multiple searches and sorts utilize this "divide and conquer" tactic in order to sort its data, particularly in regards to Arrays. <i>O(n log n)</i> falls between our quadratic and linear run times and unless we get into very complex algorithms or are willing to sacrifice a lot of space, such as in a Bucket Sort, <i>O(n log n)</i> is the usually the best we can do.</p>
+
+      <p class="note">Ruby's default sorting method, for instance, when we call <code>my_array.sort</code>, is a <a href="https://en.wikipedia.org/wiki/Quicksort">Quicksort.</a></p>
+
+      <h5>Drop the constants & overall run time</h5>
+      <p>If we have a program such as the below:</p>
+
+<pre><code>1   array_one = [1, 2, 3, 4, 5, 6, 7, 8]
+2   array_two = [6]
+3
+4   # O(log n) time
+5   array_one.binary_search(3)
+6
+7   # O(n) time
+8   array_one.each { |num| puts "odd!" if num.odd? }
+9
+10  # O(n) time
+11  array_two.each { |num| puts "odd!" if num.odd? }</code></pre>
+
+      <p>Going down the above program, line by line, we can say this program is:</p>
+
+      <pre><code><i>f(n)</i> = <i>O(1)</i> + <i>O(1)</i> + <i>O(log n)</i> + <i>O(n)</i> + <i>O(n)</i>
+      <i>...where f(n) is the total run time of our program</i></code></pre>
+
+      <p>Yes, it just looks like a mathematical formula. And just as in math, this can be simplified to:
+
+      <pre><code><i>f(n)</i> = <i>2</i> + <i>O(log n)</i> + <i>O(2n)</i></code></pre>
+
+      <p>That said, in Big O Notation, we drop the constants. Just remove them, simple as that. This means we're left with:</p>
+
+      <pre><code><i>f(n)</i> = <i>O(log n)</i> + <i>O(n)</i></code></pre>
+
+      <p>And finally, we use the largest (or worst) run time as your marker. Think of the largest notation to be a choke point or rather, even though we could have all these <i>O(1)</i> or faster operations, we're going to be bogged down by te slowest point of our program. In this case, starting around lines 8 and 11. <i>O(log n)</i> is faster/better than <i>O(n)</i>, so therefore our program's final run time can be stated as:</p>
+
+      <pre><code><i>f(n)</i> = <i>O(n)</i></code></pre>
+
+      <p>This program has a run time of <i>O(n)</i>.</p>
+
+      <h5>Conclusion</h5>
+
+      <p>We know now how to evaluate our programs based upon various code that we see. We know that nested loops are a bad idea and if possible, we prefer to use a Hash or seperate our loops. We drop constants when looking at the overall run time. In addition, our programs are stuck using the largest run time we encounter as though we may have a very fast program for 90% of it, that last 10% could be the "choke point".</p>
+
+      <p>
+        <ul>
+          <li>Example practice problems</li>
+        </ul>
+      </p>
+
+      <p>
+        <ol>
+          <li><i>Determine the run time of the following Ruby Array methods. Assume your data set is an unosrted Array of unknown length</i></li>
+<pre><code>.max                     # returns the largest element
+.collect { |x| x > 3 }   # returns an Array that meets the conditional
+.reverse                 # reverses the Array
+.insert(index, element)  # inserts element at an index, shifting everything else</code></pre>
+          <li><i>Here is the psuedocode for a type of Bucket sort, that's not worried about repeat values (<a href="https://en.wikipedia.org/wiki/Bucket_sort#Pseudocode">from Wikipedia</a>), program it and determine its run time</i></li>
+<pre><code>Initial Array: [6,3,4,2]
+Create return Array:
+  [ '', '', '', '', '', '', '' ]
+Populate with values at their indices:
+  [ '', '', 2, 3, 4, '', 6 ]
+Remove all non-values:
+  [ 2, 3, 4, 6 ]
+
+Do this in O(n) run time</code></pre>
+        </ol>
+      </p>
+
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
